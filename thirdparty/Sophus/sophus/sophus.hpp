@@ -24,7 +24,9 @@
 #define SOPHUS_HPP
 
 #include <stdexcept>
-
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 // fix log1p not being found on Android in Eigen
 #if defined( ANDROID )
 #include <cmath>
