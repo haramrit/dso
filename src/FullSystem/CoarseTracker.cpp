@@ -29,17 +29,17 @@
  *      Author: engelj
  */
 
-#include "FullSystem/CoarseTracker.h"
+
 #include "FullSystem/FullSystem.h"
 #include "FullSystem/HessianBlocks.h"
 #include "FullSystem/Residuals.h"
 #include "OptimizationBackend/EnergyFunctionalStructs.h"
 #include "IOWrapper/ImageRW.h"
+#include "FullSystem/CoarseTracker.h"
 #include <algorithm>
-
-#if !defined(__SSE3__) && !defined(__SSE2__) && !defined(__SSE1__)
-#include "SSE2NEON.h"
-#endif
+//#if !defined(__SSE3__) && !defined(__SSE2__) && !defined(__SSE1__)
+//#include "SSE2NEON.h"
+//#endif
 
 namespace dso
 {
@@ -921,7 +921,7 @@ void CoarseDistanceMap::growDistBFS(int bfsNum)
 	for(int k=1;k<40;k++)
 	{
 		int bfsNum2 = bfsNum;
-		std::swap<Eigen::Vector2i*>(bfsList1,bfsList2);
+		std::swap(static_cast<Eigen::Vector2i*> (bfsList1), static_cast<Eigen::Vector2i*>  (bfsList2));
 		bfsNum=0;
 
 		if(k%2==0)

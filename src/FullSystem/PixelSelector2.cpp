@@ -22,7 +22,7 @@
 */
 
 
-#include "FullSystem/PixelSelector2.h"
+
  
 // 
 
@@ -33,7 +33,8 @@
 #include "util/globalCalib.h"
 #include "FullSystem/HessianBlocks.h"
 #include "util/globalFuncs.h"
-
+#include "FullSystem/PixelSelector2.h"
+#include "FullSystem/PixelSelector.h"
 namespace dso
 {
 

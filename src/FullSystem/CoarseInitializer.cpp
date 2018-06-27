@@ -37,10 +37,10 @@
 #include "FullSystem/PixelSelector2.h"
 #include "util/nanoflann.h"
 
-
-#if !defined(__SSE3__) && !defined(__SSE2__) && !defined(__SSE1__)
-#include "SSE2NEON.h"
-#endif
+//
+//#if !defined(__SSE3__) && !defined(__SSE2__) && !defined(__SSE1__)
+//#include "SSE2NEON.h"
+//#endif
 
 namespace dso
 {
@@ -775,7 +775,7 @@ void CoarseInitializer::setFirst(	CalibHessian* HCalib, FrameHessian* newFrameHe
 	float* statusMap = new float[w[0]*h[0]];
 	bool* statusMapB = new bool[w[0]*h[0]];
 
-	float densities[] = {0.03,0.05,0.15,0.5,1};
+	double densities[] = {0.03,0.05,0.15,0.5,1};
 	for(int lvl=0; lvl<pyrLevelsUsed; lvl++)
 	{
 		sel.currentPotential = 3;
@@ -924,7 +924,7 @@ void CoarseInitializer::applyStep(int lvl)
 		pts[i].idepth = pts[i].idepth_new;
 		pts[i].lastHessian = pts[i].lastHessian_new;
 	}
-	std::swap<Vec10f*>(JbBuffer, JbBuffer_new);
+	std::swap(static_cast<Vec10f*> (JbBuffer), static_cast<Vec10f*>  (JbBuffer_new));
 }
 
 void CoarseInitializer::makeK(CalibHessian* HCalib)

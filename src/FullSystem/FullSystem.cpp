@@ -44,7 +44,7 @@
 #include "FullSystem/ResidualProjections.h"
 #include "FullSystem/ImmaturePoint.h"
 
-#include "FullSystem/CoarseTracker.h"
+
 #include "FullSystem/CoarseInitializer.h"
 
 #include "OptimizationBackend/EnergyFunctional.h"
@@ -53,7 +53,7 @@
 #include "IOWrapper/Output3DWrapper.h"
 
 #include "util/ImageAndExposure.h"
-
+#include "FullSystem/CoarseTracker.h"
 #include <cmath>
 
 namespace dso
@@ -1330,7 +1330,7 @@ void FullSystem::printLogLine()
 	if(frameHessians.size()==0) return;
 
     if(!setting_debugout_runquiet)
-        printf("LOG %d: %.3f fine. Res: %d A, %d L, %d M; (%'d / %'d) forceDrop. a=%f, b=%f. Window %d (%d)\n",
+        printf("LOG %d: %.3f fine. Res: %d A, %d L, %d M; (%'d / %'d) forceDrop. a=%d, b=%d. Window %f (%f)\n",
                 allKeyFramesHistory.back()->id,
                 statistics_lastFineTrackRMSE,
                 ef->resInA,

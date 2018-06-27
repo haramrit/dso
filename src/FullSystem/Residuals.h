@@ -26,13 +26,16 @@
 
  
 #include "util/globalCalib.h"
-#include "vector"
- 
+#include <vector>
+
 #include "util/NumType.h"
 #include <iostream>
 #include <fstream>
 #include "util/globalFuncs.h"
 #include "OptimizationBackend/RawResidualJacobian.h"
+#undef IN
+#undef OOB
+#undef OUTLIER
 
 namespace dso
 {
@@ -44,7 +47,7 @@ class EFResidual;
 
 
 enum ResLocation {ACTIVE=0, LINEARIZED, MARGINALIZED, NONE};
-enum ResState {IN=0, OOB, OUTLIER};
+enum ResState {IN, OOB ,OUTLIER };
 
 struct FullJacRowT
 {
@@ -54,7 +57,7 @@ struct FullJacRowT
 class PointFrameResidual
 {
 public:
-    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+	EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
 
 	EFResidual* efResidual;
 

@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-
+#include <windows.h>
 #include "IOWrapper/Output3DWrapper.h"
 #include "IOWrapper/ImageDisplay.h"
 
@@ -79,18 +79,18 @@ void my_exit_handler(int s)
 	exit(1);
 }
 
-void exitThread()
-{
-	struct sigaction sigIntHandler;
-	sigIntHandler.sa_handler = my_exit_handler;
-	sigemptyset(&sigIntHandler.sa_mask);
-	sigIntHandler.sa_flags = 0;
-	sigaction(SIGINT, &sigIntHandler, NULL);
-
-	firstRosSpin=true;
-	while(true) pause();
-}
-
+//void exitThread()
+//{
+//	struct sigaction sigIntHandler;
+//	sigIntHandler.sa_handler = my_exit_handler;
+//	sigemptyset(&sigIntHandler.sa_mask);
+//	sigIntHandler.sa_flags = 0;
+//	sigaction(SIGINT, &sigIntHandler, NULL);
+//
+//	firstRosSpin=true;
+//	while(true) pause();
+//}
+//
 
 
 void settingsDefault(int preset)
@@ -349,6 +349,23 @@ void parseArgument(char* arg)
 	printf("could not parse argument \"%s\"!!!!\n", arg);
 }
 
+///////// manually defined usleep function
+
+void usleep(__int64 usec)
+{
+	HANDLE timer;
+	LARGE_INTEGER ft;
+
+	ft.QuadPart = -(10 * usec); // Convert to 100 nanosecond interval, negative value indicates relative time
+
+	timer = CreateWaitableTimer(NULL, TRUE, NULL);
+	SetWaitableTimer(timer, &ft, 0, NULL, NULL, 0);
+	WaitForSingleObject(timer, INFINITE);
+	CloseHandle(timer);
+}
+
+//////////////////////////////////////////////
+
 
 
 int main( int argc, char** argv )
@@ -358,7 +375,7 @@ int main( int argc, char** argv )
 		parseArgument(argv[i]);
 
 	// hook crtl+C.
-	boost::thread exThread = boost::thread(exitThread);
+	//boost::thread exThread = boost::thread(exitThread);
 
 
 	ImageFolderReader* reader = new ImageFolderReader(source,calib, gammaCalib, vignette);
@@ -414,7 +431,6 @@ int main( int argc, char** argv )
 
 
 
-
     // to make MacOS happy: run this in dedicated thread -- and use this one to run the GUI.
     std::thread runthread([&]() {
         std::vector<int> idsToPlay;
@@ -445,9 +461,21 @@ int main( int argc, char** argv )
                 preloadedImages.push_back(reader->getImage(i));
             }
         }
+		////////// manually defining timeval here 
+
+
+		typedef struct timeval {
+			long tv_sec;
+			long tv_usec;
+		} timeval;
+		////////////////////////////////////////////
+
+		
+
+
 
         struct timeval tv_start;
-        gettimeofday(&tv_start, NULL);
+     //   gettimeofday(&tv_start, NULL);
         clock_t started = clock();
         double sInitializerOffset=0;
 
@@ -456,7 +484,7 @@ int main( int argc, char** argv )
         {
             if(!fullSystem->initialized)	// if not initialized: reset start time.
             {
-                gettimeofday(&tv_start, NULL);
+       //         gettimeofday(&tv_start, NULL);
                 started = clock();
                 sInitializerOffset = timesToPlayAt[ii];
             }
@@ -475,7 +503,7 @@ int main( int argc, char** argv )
             bool skipFrame=false;
             if(playbackSpeed!=0)
             {
-                struct timeval tv_now; gettimeofday(&tv_now, NULL);
+                struct timeval tv_now;// gettimeofday(&tv_now, NULL);
                 double sSinceStart = sInitializerOffset + ((tv_now.tv_sec-tv_start.tv_sec) + (tv_now.tv_usec-tv_start.tv_usec)/(1000.0f*1000.0f));
 
                 if(sSinceStart < timesToPlayAt[ii])
@@ -528,7 +556,7 @@ int main( int argc, char** argv )
         fullSystem->blockUntilMappingIsFinished();
         clock_t ended = clock();
         struct timeval tv_end;
-        gettimeofday(&tv_end, NULL);
+        //gettimeofday(&tv_end, NULL);
 
 
         fullSystem->printResult("result.txt");

@@ -27,8 +27,7 @@
 
 #include "util/NumType.h"
 
-
- 
+#include "FullSystem/PixelSelector2.h"
 
 namespace dso
 {
@@ -196,7 +195,7 @@ inline int gridMaxSelection(Eigen::Vector3f* grads, bool* map_out, int w, int h,
 }
 
 
-inline int makePixelStatus(Eigen::Vector3f* grads, bool* map, int w, int h, float desiredDensity, int recsLeft=5, float THFac = 1)
+inline int makePixelStatus(Eigen::Vector3f* grads, bool* map, int w, int h, double desiredDensity, int recsLeft=5, float THFac = 1)
 {
 	if(sparsityFactor < 1) sparsityFactor = 1;
 

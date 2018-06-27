@@ -75,6 +75,7 @@ public:
 	int w[PYR_LEVELS];
 	int h[PYR_LEVELS];
 
+
     void debugPlotIDepthMap(float* minID, float* maxID, std::vector<IOWrap::Output3DWrapper*> &wraps);
     void debugPlotIDepthMapFloat(std::vector<IOWrap::Output3DWrapper*> &wraps);
 
