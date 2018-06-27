@@ -32,7 +32,7 @@
 
 namespace Sophus {
 template<typename _Scalar, int _Options=0> class SO3Group;
-typedef EIGEN_DEPRECATED SO3Group<double> SO3;
+EIGEN_DEPRECATED typedef  SO3Group<double> SO3;
 typedef SO3Group<double> SO3d; /**< double precision SO3 */
 typedef SO3Group<float> SO3f;  /**< single precision SO3 */
 }
@@ -592,7 +592,7 @@ public:
   // base is friend so unit_quaternion_nonconst can be accessed from base
   friend class SO3GroupBase<SO3Group<_Scalar,_Options> >;
 
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
 
   /**
    * \brief Default constructor

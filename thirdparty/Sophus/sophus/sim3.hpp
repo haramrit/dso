@@ -31,7 +31,7 @@
 
 namespace Sophus {
 template<typename _Scalar, int _Options=0> class Sim3Group;
-typedef Sim3Group<double> Sim3 EIGEN_DEPRECATED;
+EIGEN_DEPRECATED typedef Sim3Group<double> Sim3;
 typedef Sim3Group<double> Sim3d; /**< double precision Sim3 */
 typedef Sim3Group<float> Sim3f;  /**< single precision Sim3 */
 typedef Matrix<double,7,1> Vector7d;
@@ -685,8 +685,7 @@ public:
   typedef typename Base::Adjoint Adjoint;
 
 
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
-
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
   /**
    * \brief Default constructor
    *
