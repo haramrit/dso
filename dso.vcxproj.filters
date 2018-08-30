@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\FullSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\FullSystemOptimize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\FullSystemOptPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\FullSystemDebugStuff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\FullSystemMarginalize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\Residuals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\CoarseTracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\CoarseInitializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\ImmaturePoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\HessianBlocks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\FullSystem\PixelSelector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\OptimizationBackend\EnergyFunctional.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\OptimizationBackend\AccumulatedTopHessian.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\OptimizationBackend\AccumulatedSCHessian.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\OptimizationBackend\EnergyFunctionalStructs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\util\settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\util\Undistort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\util\globalCalib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\IOWrapper\OpenCV\ImageDisplay_OpenCV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\IOWrapper\OpenCV\ImageRW_OpenCV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\IOWrapper\Pangolin\KeyFrameDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\src\IOWrapper\Pangolin\PangolinDSOViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\apanesar\Downloads\experiment-dso-master\dso-master\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0A401E7D-0779-3653-AF45-ECEC0FE05CE7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
